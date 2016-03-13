@@ -1,5 +1,5 @@
 SUITS = ['Heart', 'Diamonds', 'Spades', 'Clubs'].freeze
-CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A' ].freeze
+CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'].freeze
 
 def shuffle_deck
   CARDS.product(SUITS).shuffle
@@ -20,7 +20,7 @@ def value(cards)
     end
   end
   
-  totals.select { |value| value == 'A'}.count.times do
+  totals.count { |value| value == 'A' }.times do
     sum -= 10 if sum > 21
   end
   
@@ -72,7 +72,7 @@ def play_again?
 end
 
 loop do
-system "clear"
+  system "clear"
   puts "Let's play BLACKJACK"
   puts "Enter to continue =>"
   $stdin.gets.chomp
